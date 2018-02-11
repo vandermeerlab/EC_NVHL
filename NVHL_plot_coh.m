@@ -32,15 +32,15 @@ for iSub = 1:length(fieldnames(Metrics))
                 if ~strcmp(site_list{iSite}, 'ExpKeys')
                 hold on
                 plot(Metrics.(sub_list{iSub}).(sess_list{iSess}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).F,...
-                    Metrics.(sub_list{iSub}).(sess_list{iSess}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).cxx,...
+                    Metrics.(sub_list{iSub}).(sess_list{iSess}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).Cxx,...
                     'color', c_ord(iSite,:), 'linewidth', cfg.linewidth)
                 
                 if iSess ==1
-                    All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).cxx =[];
+                    All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).Cxx =[];
                 end
                 % get an average over all sessions
-                All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).cxx =...
-                    cat(1,All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).cxx, Metrics.(sub_list{iSub}).(sess_list{iSess}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).cxx');
+                All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).Cxx =...
+                    cat(1,All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).Cxx, Metrics.(sub_list{iSub}).(sess_list{iSess}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).Cxx');
                 end
             end
             xlim([0 120])
@@ -64,7 +64,7 @@ for iSub = 1:length(fieldnames(Metrics))
 
             hold on
             h = shadedErrorBar(Metrics.(sub_list{iSub}).(sess_list{iSess}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).F,...
-                All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).cxx,{@mean,@std},...
+                All_sess_coh.(sub_list{iSub}).coh.(site_list{iSite}).(PARAMS.Phases{iPhase}).Cxx,{@mean,@std},...
                 {'color', c_ord(iSite,:),'markerfacecolor',c_ord(iSite,:), 'linewidth', 2},1);
             h.mainLine.DisplayName = site_list{iSite};
             end
@@ -92,5 +92,7 @@ for iSub = 1:length(fieldnames(Metrics))
         close all
     end
 end
+
+%%
 
 

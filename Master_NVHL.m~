@@ -48,12 +48,8 @@ for iSub = 1%:length(PARAMS.Subjects)
         [data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')), cfg_loading] = NVHL_load_data(cfg_loading);
         fprintf(NVHL_log, '...complete');
     end
-    t_data = data.(PARAMS.Subjects{iSub});
-    if isunix
-        save([PARAMS.data_dir '/' PARAMS.Subjects{iSub} '_' PARAMS.Subjects{iSub} '.mat'], 't_data', '-v7.3');
-    else
-        save([PARAMS.data_dir '\' PARAMS.Subjects{iSub} '_' PARAMS.Subjects{iSub} '.mat'], 't_data', '-v7.3');
-    end
+    t_data = data.(PARAMS.Subjects{iSub}); 
+    save([PARAMS.data_dir  '_' PARAMS.Subjects{iSub} '.mat'], 't_data', '-v7.3');
     clear t_data
     % ensure the correct number of sessions exist per rat
     %     if length(fieldnames(data.(PARAMS.Subjects{iSub}))) ~=4
@@ -109,11 +105,11 @@ for iSub = 1%:length(PARAMS.Subjects)
         % compute the coherence
         Metrics.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')).coh = NVHL_get_coh([],data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')));
     end
-    cfg_mat.type = 'Cxx';
+    cfg_mat.type = 'Cxx'; 
     NVHL_mat.(PARAMS.Subjects{iSub}) = Metric_Matrix(cfg_mat, Metrics.(PARAMS.Subjects{iSub}));
 end
 
-%% create a matrix of all the output values
+%% create a matrix of all the output values 
 NVHL_plot_coh([], Metrics)
 
 %% save the intermediate files
