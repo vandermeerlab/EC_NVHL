@@ -50,9 +50,9 @@ for iSub = 1%:length(PARAMS.Subjects)
     end
     t_data = data.(PARAMS.Subjects{iSub});
     if isunix
-        save([PARAMS.data_dir '/' PARAMS.Subjects{iSub} '_' PARAMS.Subjects{iSub} '.mat'], 't_data', '-v7.3');
+        save([PARAMS.data_dir '/' PARAMS.Subjects{iSub} '_inter.mat'], 't_data', '-v7.3');
     else
-        save([PARAMS.data_dir '\' PARAMS.Subjects{iSub} '_' PARAMS.Subjects{iSub} '.mat'], 't_data', '-v7.3');
+        save([PARAMS.data_dir '\' PARAMS.Subjects{iSub} '_inter.mat'], 't_data', '-v7.3');
     end
     clear t_data
     % ensure the correct number of sessions exist per rat
