@@ -31,7 +31,7 @@ addpath(genpath(PARAMS.code_base_dir));
 addpath(genpath(PARAMS.code_NVHL_dir));
 addpath(genpath(PARAMS.code_basic_functions));
 cd(PARAMS.data_dir) % move to the data folder
-
+mkdir(PARAMS.inter_dir)
 
 set(0, 'DefaulttextInterpreter', 'none')
 
