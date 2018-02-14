@@ -61,7 +61,7 @@ for iChan = 1:length(ExpKeys.Chan_to_use)
     cfg_load.fc = ExpKeys.Chan_to_use(iChan);
     cfg_load.resample = 2000;
     csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)) = LoadCSC(cfg_load);
-    
+    fprintf(['\n' ExpKeys.Chan_to_use_labels{iChan}(1:end-1) '_FS:' num2str(csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).cfg.hdr{1}.SamplingFrequency) '\n'])
     % check to see if the data has been sampled appropriotely as per
     % cfg_load.resample
     if csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).cfg.hdr{1}.SamplingFrequency ~= cfg_load.resample
@@ -72,7 +72,7 @@ for iChan = 1:length(ExpKeys.Chan_to_use)
         csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).tvec = csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).tvec(1:cfg.decimateByFactor:end);
         csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).cfg.hdr{1}.SamplingFrequency = csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).cfg.hdr{1}.SamplingFrequency./cfg.decimateByFactor;
         
-        if floor(mode(diff(csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).tvec))*10000) ~= floor((1/(csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).cfg.hdr{1}.SamplingFrequency)*10000));
+        if round(mode(diff(csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).tvec))*10000) ~= floor((1/(csc_out.(ExpKeys.Chan_to_use_labels{iChan}(1:end-1)).cfg.hdr{1}.SamplingFrequency)*10000));
             error('Something went wrong.  The diff in tvec samples does not match the sampling frequency following resampling')
         end
     end
