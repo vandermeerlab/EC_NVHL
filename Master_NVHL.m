@@ -48,11 +48,11 @@ for iSub = 1%:length(PARAMS.Subjects)
         [all_data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')), cfg_loading] = NVHL_load_data(cfg_loading);
         fprintf(NVHL_log, '...complete');
     end
-    data = all_data.(PARAMS.Subjects{iSub});
+    t_data = all_data.(PARAMS.Subjects{iSub});
     if isunix
-        save([PARAMS.data_dir '/' PARAMS.Subjects{iSub} '_inter.mat'], 'data', '-v7.3');
+        save([PARAMS.data_dir '/' PARAMS.Subjects{iSub} '_inter.mat'], 't_data', '-v7.3');
     else
-        save([PARAMS.data_dir '\' PARAMS.Subjects{iSub} '_inter.mat'], 'data', '-v7.3');
+        save([PARAMS.data_dir '\' PARAMS.Subjects{iSub} '_inter.mat'], 't_data', '-v7.3');
     end
     clear data
     % ensure the correct number of sessions exist per rat
@@ -126,7 +126,7 @@ end
 %% save the intermediate files
 fprintf(NVHL_log,'\n\nSaving intermediates');
 mkdir(PARAMS.data_dir, 'temp');
-save([PARAMS.data_dir 'NVHL_data.mat'], 'data', '-v7.3')
+save([PARAMS.data_dir 'NVHL_data.mat'], 'all_data', '-v7.3')
 save([PARAMS.data_dir 'NVHL_Metrics.mat'], 'Metrics', '-v7.3')
 save([PARAMS.data_dir 'NVHL_events.mat'], 'Events', '-v7.3')
 % save([PARAMS.data_dir 'NVHL_mat.mat'], 'NVHL_mat', '-v7.3')
