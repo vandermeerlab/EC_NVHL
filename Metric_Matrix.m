@@ -1,10 +1,10 @@
-function Mat_out  = Metric_Matrix(cfg_in, Metrics);
+function mat_out  = Metric_Matrix(cfg_in, Metrics);
 %% Metric_Matric: utility function for forming a matrix of values from a metric structure (can be psd, coherence, xcorr, ...)
 
 
 global PARAMS
 cfg_def.f = [45 65; 70 90];
-cfg_def.labels = {'PL', 'IL', 'OFC', 'NAc', 'CG'};
+cfg_def.labels = {'PL', 'OFC', 'NAc', 'CG'};
 mfun = mfilename;
 cfg  = ProcessConfig2(cfg_def, cfg_in);
 
@@ -32,10 +32,10 @@ switch cfg.type
         
         
         for iPhase = 1:length(PARAMS.Phases)
-            for iBand = 1:2
+%             for iband = 1:2
                 mat_out.(PARAMS.Phases{iPhase}).sess_coh = NaN(size(mat_out.labels));
                 mat_out.(PARAMS.Phases{iPhase}).evt_coh = NaN(size(mat_out.labels));
-            end
+%             end
         end
         
         %%
