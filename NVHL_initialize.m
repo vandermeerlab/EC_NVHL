@@ -31,6 +31,5 @@ addpath(genpath(PARAMS.code_NVHL_dir));
 addpath(genpath(PARAMS.code_basic_functions));
 
 cd(PARAMS.data_dir) % move to the data folder
-set(0, 'DefaulttextInterpreter', 'none')
-
+set(groot, 'defaultAxesTickLabelInterpreter','none'); set(groot, 'defaultLegendInterpreter','none');
 % run('Master_NVHL')

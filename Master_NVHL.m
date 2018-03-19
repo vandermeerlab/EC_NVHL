@@ -22,7 +22,7 @@ NVHL_log = fopen([PARAMS.data_dir '/NVHL_log.txt'], 'w');
 fprintf(NVHL_log, date);
 % Extract the data from each recroding phase within each session and separate pot vs track sections
 
-for iSub = 1%:length(PARAMS.Subjects)
+for iSub = 1:length(PARAMS.Subjects)
     if isunix
         cd([PARAMS.data_dir '/' PARAMS.Subjects{iSub}])
     else
@@ -63,7 +63,7 @@ end
 
 %% generate PSDs
 fprintf(NVHL_log,'\n\nExtracting Power Metrics');
-for iSub = 1%:length(PARAMS.Subjects)
+for iSub = 1:length(PARAMS.Subjects)
     load([PARAMS.data_dir PARAMS.Subjects{iSub} '_inter.mat']); 
     data.(PARAMS.Subjects{iSub}) = t_data;
     clear t_data
@@ -87,46 +87,50 @@ for iSub = 1%:length(PARAMS.Subjects)
     clear data
 end
 
-% %% plot the PSD with all the channels
-% cfg_psd_plot.type = 'both';
-% NVHL_plot_psd(cfg_psd_plot, Metrics)
-% 
-% % %% get the gamma event counts per for pot and
-% % fprintf(NVHL_log,'\n\nCollecting Events');
-% %
-% % for iSub = 1:length(PARAMS.Subjects)
-% %     sess_list = fieldnames(data.(PARAMS.Subjects{iSub}));
-% %     for iSess  = 1:length(sess_list)
-% %         fprintf(NVHL_log,['\nEvents ' PARAMS.Subjects{iSub} '  ' sess_list{iSess}]);
-% %         [Events.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_'))] = MS_extract_gamma([],data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')));
-% %         fprintf(NVHL_log, '...complete');
-% %     end
-% % end
-% % % summary of Metrics events
-% %
-% % %     stats = MS_gamma_stats([], Events);
-% %%
-% fprintf(NVHL_log,'\n\nExtracting Coherence Metrics');
-% for iSub = 2:length(PARAMS.Subjects)
-%         load([PARAMS.data_dir PARAMS.Subjects{iSub} '_inter.mat']); 
-%     data.(PARAMS.Subjects{iSub}) = t_data;
-%     clear t_data
+%% plot the PSD with all the channels
+cfg_psd_plot.type = 'both';
+NVHL_plot_psd(cfg_psd_plot, Metrics)
+
+% %% get the gamma event counts per for pot and
+% fprintf(NVHL_log,'\n\nCollecting Events');
+%
+% for iSub = 1:length(PARAMS.Subjects)
 %     sess_list = fieldnames(data.(PARAMS.Subjects{iSub}));
 %     for iSess  = 1:length(sess_list)
-%         % compute the coherence
-%         Metrics.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')).coh = NVHL_get_coh([],data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')));
+%         fprintf(NVHL_log,['\nEvents ' PARAMS.Subjects{iSub} '  ' sess_list{iSess}]);
+%         [Events.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_'))] = MS_extract_gamma([],data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')));
+%         fprintf(NVHL_log, '...complete');
 %     end
-%     cfg_mat.type = 'Cxx';
-%     NVHL_mat.(PARAMS.Subjects{iSub}) = Metric_Matrix(cfg_mat, Metrics.(PARAMS.Subjects{iSub}));
 % end
-% 
-% %% create a matrix of all the output values
-% NVHL_plot_coh([], Metrics)
+% % summary of Metrics events
+%
+% %     stats = MS_gamma_stats([], Events);
+%%
+fprintf(NVHL_log,'\n\nExtracting Coherence Metrics');
+for iSub = 1%:length(PARAMS.Subjects)
+        load([PARAMS.data_dir PARAMS.Subjects{iSub} '_inter.mat']); 
+    data.(PARAMS.Subjects{iSub}) = t_data;
+    clear t_data
+    sess_list = fieldnames(data.(PARAMS.Subjects{iSub}));
+    for iSess  = 1:length(sess_list)
+        % compute the coherence
+        Metrics.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')).coh = NVHL_get_coh([],data.(PARAMS.Subjects{iSub}).(strrep(sess_list{iSess}, '-', '_')));
+    end
+    cfg_mat.type = 'Cxx';
+    NVHL_mat.(PARAMS.Subjects{iSub}) = Metric_Matrix(cfg_mat, Metrics.(PARAMS.Subjects{iSub}));
+end
 
+%% create a matrix of all the output values
+NVHL_plot_coh([], Metrics)
+
+%% plot coherence between groups
+cfg_coh.group = []
+cfg_coh.groupnames = unique(PARAMS.Group); 
+NVHL_plot_coh(cfg_coh, Metrics)
 %% save the intermediate files
 fprintf(NVHL_log,'\n\nSaving intermediates');
 mkdir(PARAMS.data_dir, 'temp');
-save([PARAMS.data_dir 'NVHL_data.mat'], 'all_data', '-v7.3')
+save([PARAMS.data_dir 'NVHL_data.mat'], 'data', '-v7.3')
 save([PARAMS.data_dir 'NVHL_Metrics.mat'], 'Metrics', '-v7.3')
 save([PARAMS.data_dir 'NVHL_events.mat'], 'Events', '-v7.3')
 % save([PARAMS.data_dir 'NVHL_mat.mat'], 'NVHL_mat', '-v7.3')
