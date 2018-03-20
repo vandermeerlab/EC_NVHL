@@ -4,11 +4,11 @@ function PPC_comparison(cfg_in)
 %%
 cfg_def = [];
 cfg_def.dataset = {'CSC8.ncs','CSC24.ncs','CSC30.ncs'};
-cfg_def.data_dir = '/Users/jericcarmichael/Documents/R111-2017-06-20-Rec_auto for Eroc'; 
-cfg_def.inter_dir = '/Users/jericcarmichael/Documents/R111-2017-06-20-Rec_auto for Eroc'; 
+cfg_def.data_dir = '/Users/jericcarmichael/Documents/R111-2017-06-20-Rec_auto for Eroc';
+cfg_def.inter_dir = '/Users/jericcarmichael/Documents/R111-2017-06-20-Rec_auto for Eroc';
 cfg_def.phase = 1; % corresponds to the first recording phase ('pre').  2 = 'task', 3 = 'post'.
-cfg_def.shuffle = 10; 
-cfg_def.min_nSpikes = 500; 
+cfg_def.shuffle = 10;
+cfg_def.min_nSpikes = 500;
 cfg = ProcessConfig(cfg_def, cfg_in);
 
 cd(cfg.data_dir)
@@ -19,7 +19,7 @@ LFP_list = cfg.dataset;
 
 %get the Ts files for all cells. and appended them to the csc file
 t_id = FindFiles('*.t');
-S_list = {}; 
+S_list = {};
 for iS = 1:length(t_id)
     spike = ft_read_spike(t_id{iS}); % needs fixed read_mclust_t.m
     disp([spike.label{1} 'Contained: ' num2str(length(spike.timestamp{1})) ' spikes'])
@@ -125,9 +125,9 @@ for  iLFP = 1:length(LFP_list)
         for iShuf = 1:nShuf
             
             fprintf('Shuffle %d...\n',iShuf);
-                t_idx = strfind(data_i.label, S_list{iS});
-                spk_idx = find(not(cellfun('isempty', t_idx)));   
-                % shuffle once
+            t_idx = strfind(data_i.label, S_list{iS});
+            spk_idx = find(not(cellfun('isempty', t_idx)));
+            % shuffle once
             for iT = 1:length(data_i.trial) % shuffle each trial separately
                 orig_data = data_i.trial{iT}(spk_idx,:);
                 data_i.trial{iT}(iChan,:) = orig_data(randperm(length(orig_data)));
@@ -161,6 +161,7 @@ for  iLFP = 1:length(LFP_list)
             shuf_ppc(iShuf,:) = statSts.ppc0';
             
         end % of shuffles
+        id = strrep(spk_chan, '-', '_');
         
         %% plot
         close all
@@ -180,7 +181,6 @@ for  iLFP = 1:length(LFP_list)
             ylabel('PPC')
             title([spk_chan '_' lfp_chan]);
             
-            id = strrep(spk_chan, '-', '_');
             mkdir(cfg.inter_dir, 'PPC')
             if isunix
                 saveas(gcf, [cfg.inter_dir '/PPC/' id '_csc_' lfp_chan(1:end-4)], 'fig');
@@ -194,8 +194,8 @@ for  iLFP = 1:length(LFP_list)
         PPC.(lfp_chan(1:end-4)).(id).obs_freq = obs_freq;
         PPC.(lfp_chan(1:end-4)).(id).obs_ppc = obs_ppc;
         PPC.(lfp_chan(1:end-4)).(id).shuf_freq = shuf_ppc;
-        PPC.(lfp_chan(1:end-4)).(id).staAll = staAll; 
-    
+        PPC.(lfp_chan(1:end-4)).(id).staAll = staAll;
+        
     end
 end
 [~,dir_id] = fileparts(pwd);
