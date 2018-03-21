@@ -74,12 +74,14 @@ for  iLFP = 1:length(LFP_list)
         staAll           = ft_spiketriggeredaverage(cfg_sta, data_i);
         
         % plot
-        figure
-        plot(staAll.time, staAll.avg(:,:)');
-        legend(data.label); h = title(cfg_sta.spikechannel); set(h,'Interpreter','none');
-        set(gca,'FontSize',14,'XLim',cfg_sta.timwin,'XTick',cfg_sta.timwin(1):0.1:cfg_sta.timwin(2));
-        xlabel('time (s)'); grid on;
-        
+        if isfield(cfg, 'plot')
+            
+            figure
+            plot(staAll.time, staAll.avg(:,:)');
+            legend(data.label); h = title(cfg_sta.spikechannel); set(h,'Interpreter','none');
+            set(gca,'FontSize',14,'XLim',cfg_sta.timwin,'XTick',cfg_sta.timwin(1):0.1:cfg_sta.timwin(2));
+            xlabel('time (s)'); grid on;
+        end
         %% ppc etc
         cfg_ppc            = [];
         cfg_ppc.method    = 'mtmconvol';
@@ -91,8 +93,10 @@ for  iLFP = 1:length(LFP_list)
         stsConvol     = ft_spiketriggeredspectrum(cfg_ppc, data_i); % note, use raw or interpolated version
         
         % plot
-        plot(stsConvol.freq,nanmean(sq(abs(stsConvol.fourierspctrm{1}))))
-        
+        if isfield(cfg, 'plot')
+            
+            plot(stsConvol.freq,nanmean(sq(abs(stsConvol.fourierspctrm{1}))))
+        end
         %%
         cfg_ppc                = [];
         cfg_ppc.method        = 'ppc0'; % compute the Pairwise Phase Consistency
@@ -125,9 +129,42 @@ for  iLFP = 1:length(LFP_list)
         t_idx = strfind(data_i.label, S_list{iS});
         spk_idx = find(not(cellfun('isempty', t_idx)));
         shuf_ppc = zeros(nShuf,length(obs_freq));
-        parfor iShuf = 1:nShuf
+        for iShuf = 1:nShuf
             fprintf('Shuffle %d...\n',iShuf);
-            shuf_ppc(iShuf,:) = Shuffle_PPC(data_i, spk_idx, lfp_chan, iChan);
+            
+            % shuffle once
+            for iT = 1:length(data_i.trial) % shuffle each trial separately
+                orig_data = data_i.trial{iT}(spk_idx,:);
+                data_i.trial{iT}(iChan,:) = orig_data(randperm(length(orig_data)));
+                
+            end
+            
+            %% ppc etc
+            cfg_ppc            = [];
+            cfg_ppc.method    = 'mtmconvol';
+            cfg_ppc.foi       = 1:1:100;
+            cfg_ppc.t_ftimwin = 5./cfg_ppc.foi; % cycles per frequency
+            cfg_ppc.taper     = 'hanning';
+            cfg_ppc.spikechannel = 'temp_shuf';
+            cfg_ppc.channel      = lfp_chan(1:end-4);
+            stsConvol     = ft_spiketriggeredspectrum(cfg_ppc , data_i); % note, use raw or interpolated version
+            
+            % plot
+            %plot(stsConvol.freq,nanmean(sq(abs(stsConvol.fourierspctrm{1}))))
+            
+            %%
+            cfg_ppc               = [];
+            cfg_ppc.method        = 'ppc0'; % compute the Pairwise Phase Consistency
+            cfg_ppc.spikechannel = 'temp_shuf';
+            cfg_ppc.channel      = lfp_chan(1:end-4);
+            %cfg.dojack = 1;
+            cfg_ppc.avgoverchan   = 'unweighted'; % weight spike-LFP phases irrespective of LFP power
+            cfg_ppc.timwin        = 'all'; % compute over all available spikes in the window
+            %cfg.latency       = [-2.5 0]; % sustained visual stimulation period
+            statSts           = ft_spiketriggeredspectrum_stat(cfg_ppc ,stsConvol);
+            
+            shuf_ppc = statSts.ppc0';
+            %             shuf_ppc(iShuf,:) = Shuffle_PPC(data_i, spk_idx, lfp_chan, iChan);
         end
         id = strrep(spk_chan, '-', '_');
         
@@ -173,40 +210,40 @@ save(['PPC_' dir_id], 'PPC',  '-v7.3');
 end
 
 %%
-function shuf_ppc = Shuffle_PPC(data_i, spk_idx, lfp_chan, iChan)
-
-% shuffle once
-for iT = 1:length(data_i.trial) % shuffle each trial separately
-    orig_data = data_i.trial{iT}(spk_idx,:);
-    data_i.trial{iT}(iChan,:) = orig_data(randperm(length(orig_data)));
-    
-end
-
-%% ppc etc
-cfg_ppc            = [];
-cfg_ppc.method    = 'mtmconvol';
-cfg_ppc.foi       = 1:1:100;
-cfg_ppc.t_ftimwin = 5./cfg_ppc.foi; % cycles per frequency
-cfg_ppc.taper     = 'hanning';
-cfg_ppc.spikechannel = 'temp_shuf';
-cfg_ppc.channel      = lfp_chan(1:end-4);
-stsConvol     = ft_spiketriggeredspectrum(cfg_ppc , data_i); % note, use raw or interpolated version
-
-% plot
-%plot(stsConvol.freq,nanmean(sq(abs(stsConvol.fourierspctrm{1}))))
-
-%%
-cfg_ppc               = [];
-cfg_ppc.method        = 'ppc0'; % compute the Pairwise Phase Consistency
-cfg_ppc.spikechannel = 'temp_shuf';
-cfg_ppc.channel      = lfp_chan(1:end-4);
-%cfg.dojack = 1;
-cfg_ppc.avgoverchan   = 'unweighted'; % weight spike-LFP phases irrespective of LFP power
-cfg_ppc.timwin        = 'all'; % compute over all available spikes in the window
-%cfg.latency       = [-2.5 0]; % sustained visual stimulation period
-statSts           = ft_spiketriggeredspectrum_stat(cfg_ppc ,stsConvol);
-
-shuf_ppc = statSts.ppc0';
-
-end % of shuffles
+% function shuf_ppc = Shuffle_PPC(data_i, spk_idx, lfp_chan, iChan)
+% % shuffle once
+% for iT = 1:length(data_i.trial) % shuffle each trial separately
+%     orig_data = data_i.trial{iT}(spk_idx,:);
+%     data_i.trial{iT}(iChan,:) = orig_data(randperm(length(orig_data)));
+%
+% end
+%
+% %% ppc etc
+% cfg_ppc            = [];
+% cfg_ppc.method    = 'mtmconvol';
+% cfg_ppc.foi       = 1:1:100;
+% cfg_ppc.t_ftimwin = 5./cfg_ppc.foi; % cycles per frequency
+% cfg_ppc.taper     = 'hanning';
+% cfg_ppc.spikechannel = 'temp_shuf';
+% cfg_ppc.channel      = lfp_chan(1:end-4);
+% stsConvol     = ft_spiketriggeredspectrum(cfg_ppc , data_i); % note, use raw or interpolated version
+%
+% % plot
+% %plot(stsConvol.freq,nanmean(sq(abs(stsConvol.fourierspctrm{1}))))
+%
+% %%
+% cfg_ppc               = [];
+% cfg_ppc.method        = 'ppc0'; % compute the Pairwise Phase Consistency
+% cfg_ppc.spikechannel = 'temp_shuf';
+% cfg_ppc.channel      = lfp_chan(1:end-4);
+% %cfg.dojack = 1;
+% cfg_ppc.avgoverchan   = 'unweighted'; % weight spike-LFP phases irrespective of LFP power
+% cfg_ppc.timwin        = 'all'; % compute over all available spikes in the window
+% %cfg.latency       = [-2.5 0]; % sustained visual stimulation period
+% statSts           = ft_spiketriggeredspectrum_stat(cfg_ppc ,stsConvol);
+%
+% shuf_ppc = statSts.ppc0';
+%
+%
+% end % of shuffles
 
