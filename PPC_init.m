@@ -16,5 +16,4 @@ cfg_in.shuffle = 100;
 cfg_in.plot = 1;
 cfg_in.min_nSpikes = 500; 
 
-
 PPC_comparison(cfg_in); 
