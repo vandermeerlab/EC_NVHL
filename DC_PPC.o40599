@@ -1,0 +1,423 @@
+------------------------- Prologue ----------------------------
+         Started: Mon Mar 19 20:37:32 EDT 2018
+          Job ID: 40599.knorr.hpcc.dartmouth.edu
+         User ID: f00287r
+        Group ID: rc-users
+        Job Name: DC_PPC
+ Resources Req'd: nodes=1:ppn=8,walltime=16:00:00,neednodes=1:ppn=8
+      Queue Name: default
+    Account Name: BrainSci
+------------------------- Prologue ----------------------------
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2014 The MathWorks, Inc.
+                   R2014b (8.4.0.150421) 64-bit (glnxa64)
+                             September 15, 2014
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+[Warning: Function plot has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path at 109
+  In addpath at 86
+  In PPC_init at 6] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_neuralynx_interp at 32
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_neuralynx_interp at 32
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_neuralynx_interp at 32
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_data at 185
+  In ft_read_neuralynx_interp at 43
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_read_neuralynx_interp at 43
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_data at 185
+  In ft_read_neuralynx_interp at 43
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_read_neuralynx_interp at 43
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_data at 185
+  In ft_read_neuralynx_interp at 43
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_read_neuralynx_interp at 43
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_preprocessing at 384
+  In ft_read_neuralynx_interp at 87
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+processing channel { 'CSC8' }
+reading and preprocessing
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_preprocessing at 563
+  In ft_read_neuralynx_interp at 87
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+reading and preprocessing trial 1 from 1
+the call to "ft_preprocessing" took 4 seconds and required the additional allocation of an estimated 139 MB
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_data at 185
+  In ft_read_neuralynx_interp at 88
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_read_neuralynx_interp at 88
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_preprocessing at 384
+  In ft_read_neuralynx_interp at 87
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+processing channel { 'CSC24' }
+reading and preprocessing
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_preprocessing at 563
+  In ft_read_neuralynx_interp at 87
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+reading and preprocessing trial 1 from 1
+the call to "ft_preprocessing" took 2 seconds and required the additional allocation of an estimated 128 MB
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_data at 185
+  In ft_read_neuralynx_interp at 88
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_read_neuralynx_interp at 88
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: removing inconsistent sampleinfo] 
+[> In ft_datatype_raw at 105
+  In ft_checkdata at 225
+  In ft_appenddata at 77
+  In ft_read_neuralynx_interp at 134
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: removing inconsistent sampleinfo] 
+[> In ft_datatype_raw at 105
+  In ft_checkdata at 225
+  In ft_appenddata at 77
+  In ft_read_neuralynx_interp at 134
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+input dataset 1, 1 channels, 1 trials
+input dataset 2, 1 channels, 1 trials
+[Warning: input data comes from different datafiles; removing sampleinfo field] 
+[> In ft_appenddata at 201
+  In ft_read_neuralynx_interp at 134
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+concatenating the channels within each trial
+removing sampleinfo field from output
+the call to "ft_appenddata" took 1 seconds and required the additional allocation of an estimated 136 MB
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_preprocessing at 384
+  In ft_read_neuralynx_interp at 87
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+processing channel { 'CSC30' }
+reading and preprocessing
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_preprocessing at 563
+  In ft_read_neuralynx_interp at 87
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+reading and preprocessing trial 1 from 1
+the call to "ft_preprocessing" took 3 seconds and required the additional allocation of an estimated 196 MB
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_header at 1412
+  In ft_read_data at 185
+  In ft_read_neuralynx_interp at 88
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: discontinuous recording, predicted number of timestamps and observed
+number of timestamps differ by 98139000.00
+ Please consult the wiki on
+ http://fieldtrip.fcdonders.nl/getting_started/neuralynx?&#discontinuous_recordings] 
+[> In fileio/private/read_neuralynx_ncs at 112
+  In ft_read_data at 883
+  In ft_read_neuralynx_interp at 88
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+[Warning: removing inconsistent sampleinfo] 
+[> In ft_datatype_raw at 105
+  In ft_checkdata at 225
+  In ft_appenddata at 77
+  In ft_read_neuralynx_interp at 134
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+input dataset 1, 2 channels, 1 trials
+input dataset 2, 1 channels, 1 trials
+[Warning: input data comes from different datafiles; removing sampleinfo field] 
+[> In ft_appenddata at 201
+  In ft_read_neuralynx_interp at 134
+  In PPC_comparison at 16
+  In PPC_init at 19] 
+concatenating the channels within each trial
+removing sampleinfo field from output
+the call to "ft_appenddata" took 0 seconds and required the additional allocation of an estimated 196 MB
+R111-2017-06-20-TT01_1Contained: 1424 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 0 MB
+adding spike channel R111-2017-06-20-TT01_1
+adding spike channel R111-2017-06-20-TT01_1, trial 1 contains 1406 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 263 MB
+R111-2017-06-20-TT01_2Contained: 563 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 196 MB
+adding spike channel R111-2017-06-20-TT01_2
+adding spike channel R111-2017-06-20-TT01_2, trial 1 contains 562 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 328 MB
+R111-2017-06-20-TT01_3Contained: 426 spikes
+R111-2017-06-20-TT01_4Contained: 2318 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 264 MB
+adding spike channel R111-2017-06-20-TT01_4
+adding spike channel R111-2017-06-20-TT01_4, trial 1 contains 2165 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 393 MB
+R111-2017-06-20-TT06_1Contained: 2835 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 327 MB
+adding spike channel R111-2017-06-20-TT06_1
+adding spike channel R111-2017-06-20-TT06_1, trial 1 contains 2835 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 458 MB
+R111-2017-06-20-TT06_2Contained: 414 spikes
+R111-2017-06-20-TT06_3Contained: 312 spikes
+R111-2017-06-20-TT08_1Contained: 16147 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 394 MB
+adding spike channel R111-2017-06-20-TT08_1
+adding spike channel R111-2017-06-20-TT08_1, trial 1 contains 16101 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 524 MB
+R111-2017-06-20-TT10_1Contained: 27003 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 458 MB
+adding spike channel R111-2017-06-20-TT10_1
+adding spike channel R111-2017-06-20-TT10_1, trial 1 contains 26363 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 590 MB
+R111-2017-06-20-TT10_2Contained: 25515 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 524 MB
+adding spike channel R111-2017-06-20-TT10_2
+adding spike channel R111-2017-06-20-TT10_2, trial 1 contains 24694 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 654 MB
+R111-2017-06-20-TT14_1Contained: 12035 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 590 MB
+adding spike channel R111-2017-06-20-TT14_1
+adding spike channel R111-2017-06-20-TT14_1, trial 1 contains 11495 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 719 MB
+R111-2017-06-20-TT14_2Contained: 29460 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 654 MB
+adding spike channel R111-2017-06-20-TT14_2
+adding spike channel R111-2017-06-20-TT14_2, trial 1 contains 28504 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 786 MB
+R111-2017-06-20-TT14_3Contained: 71234 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 720 MB
+adding spike channel R111-2017-06-20-TT14_3
+adding spike channel R111-2017-06-20-TT14_3, trial 1 contains 70846 spikes
+the call to "ft_appendspike" took 2 seconds and required the additional allocation of an estimated 850 MB
+R111-2017-06-20-TT16_1Contained: 17434 spikes
+the call to "ft_appendspike" took 0 seconds and required the additional allocation of an estimated 785 MB
+adding spike channel R111-2017-06-20-TT16_1
+adding spike channel R111-2017-06-20-TT16_1, trial 1 contains 16819 spikes
+the call to "ft_appendspike" took 1 seconds and required the additional allocation of an estimated 917 MB
+LoadCSC: Loading 1 file(s)...
+LoadCSC: CSC8.ncs 3/16335 bad blocks found (0.02%).
+the input is raw data with 14 channels and 1 trials
+the call to "ft_redefinetrial" took 0 seconds and required the additional allocation of an estimated 69 MB
+the input is raw data with 14 channels and 1 trials
+Spike Triggered Interpolation: processing trial 1 of 1 (855 spikes)
+the input is raw data with 14 channels and 1 trials
+the call to "ft_selectdata" took 0 seconds and required the additional allocation of an estimated 0 MB
+processing trial 1 of 1 (855 spikes)
+[Warning: Ignoring extra legend entries.] 
+[> In /opt/matlab/R2014b/toolbox/matlab/scribe/private/legendHGUsingMATLABClasses.p>set_children_and_strings at 649
+  In /opt/matlab/R2014b/toolbox/matlab/scribe/private/legendHGUsingMATLABClasses.p>make_legend at 312
+  In /opt/matlab/R2014b/toolbox/matlab/scribe/private/legendHGUsingMATLABClasses.p>legendHGUsingMATLABClasses at 244
+  In legend at 118
+  In PPC_comparison at 79
+  In PPC_init at 19] 
+the input is raw data with 14 channels and 1 trials
+converting raw data into spike data
+Please wait...
+Processing frequency 2 from 91Processing frequency 3 from 91Processing frequency 4 from 91Processing frequency 5 from 91Processing frequency 6 from 91Processing frequency 7 from 91Processing frequency 8 from 91Processing frequency 9 from 91Processing frequency 10 from 91Processing frequency 11 from 91Processing frequency 12 from 91Processing frequency 13 from 91Processing frequency 14 from 91Processing frequency 15 from 91Processing frequency 16 from 91Processing frequency 17 from 91Processing frequency 18 from 91Processing frequency 19 from 91Processing frequency 20 from 91Processing frequency 21 from 91Processing frequency 22 from 91Processing frequency 23 from 91Processing frequency 24 from 91Processing frequency 25 from 91Processing frequency 26 from 91Processing frequency 27 from 91Processing frequency 28 from 91Processing frequency 29 from 91Processing frequency 30 from 91Processing frequency 31 from 91Processing frequency 32 from 91Processing frequency 33 from 91Processing frequency 34 from 91Processing frequency 35 from 91Processing frequency 36 from 91Processing frequency 37 from 91Processing frequency 38 from 91Processing frequency 39 from 91Processing frequency 40 from 91Processing frequency 41 from 91Processing frequency 42 from 91Processing frequency 43 from 91Processing frequency 44 from 91Processing frequency 45 from 91Processing frequency 46 from 91Processing frequency 47 from 91Processing frequency 48 from 91Processing frequency 49 from 91Processing frequency 50 from 91Processing frequency 51 from 91Processing frequency 52 from 91Processing frequency 53 from 91Processing frequency 54 from 91Processing frequency 55 from 91Processing frequency 56 from 91Processing frequency 57 from 91Processing frequency 58 from 91Processing frequency 59 from 91Processing frequency 60 from 91Processing frequency 61 from 91Processing frequency 62 from 91Processing frequency 63 from 91Processing frequency 64 from 91Processing frequency 65 from 91Processing frequency 66 from 91Processing frequency 67 from 91Processing frequency 68 from 91Processing frequency 69 from 91Processing frequency 70 from 91Processing frequency 71 from 91Processing frequency 72 from 91Processing frequency 73 from 91Processing frequency 74 from 91Processing frequency 75 from 91Processing frequency 76 from 91Processing frequency 77 from 91Processing frequency 78 from 91Processing frequency 79 from 91Processing frequency 80 from 91Processing frequency 81 from 91Processing frequency 82 from 91Processing frequency 83 from 91Processing frequency 84 from 91Processing frequency 85 from 91Processing frequency 86 from 91Processing frequency 87 from 91Processing frequency 88 from 91Processing frequency 89 from 91Processing frequency 90 from 91Processing frequency 91 from 91
+the input is spike data with 1 channels
+Please wait...
+
+Shuffle 1...
+[Warning: use cfg.method='mtmconvol' instead of cfg.method='convol'] 
+[> In ft_checkconfig at 139
+  In ft_spiketriggeredspectrum at 85
+  In PPC_comparison at 145
+  In PPC_init at 19] 
+the input is raw data with 15 channels and 1 trials
+converting raw data into spike data
+Please wait...
+Processing frequency 2 from 91Processing frequency 3 from 91Processing frequency 4 from 91Processing frequency 5 from 91Processing frequency 6 from 91Processing frequency 7 from 91Processing frequency 8 from 91Processing frequency 9 from 91Processing frequency 10 from 91Processing frequency 11 from 91Processing frequency 12 from 91Processing frequency 13 from 91Processing frequency 14 from 91Processing frequency 15 from 91Processing frequency 16 from 91Processing frequency 17 from 91Processing frequency 18 from 91Processing frequency 19 from 91Processing frequency 20 from 91Processing frequency 21 from 91Processing frequency 22 from 91Processing frequency 23 from 91Processing frequency 24 from 91Processing frequency 25 from 91Processing frequency 26 from 91Processing frequency 27 from 91Processing frequency 28 from 91Processing frequency 29 from 91Processing frequency 30 from 91Processing frequency 31 from 91Processing frequency 32 from 91Processing frequency 33 from 91Processing frequency 34 from 91Processing frequency 35 from 91Processing frequency 36 from 91Processing frequency 37 from 91Processing frequency 38 from 91Processing frequency 39 from 91Processing frequency 40 from 91Processing frequency 41 from 91Processing frequency 42 from 91Processing frequency 43 from 91Processing frequency 44 from 91Processing frequency 45 from 91Processing frequency 46 from 91Processing frequency 47 from 91Processing frequency 48 from 91Processing frequency 49 from 91Processing frequency 50 from 91Processing frequency 51 from 91Processing frequency 52 from 91Processing frequency 53 from 91Processing frequency 54 from 91Processing frequency 55 from 91Processing frequency 56 from 91Processing frequency 57 from 91Processing frequency 58 from 91Processing frequency 59 from 91Processing frequency 60 from 91Processing frequency 61 from 91Processing frequency 62 from 91Processing frequency 63 from 91Processing frequency 64 from 91Processing frequency 65 from 91Processing frequency 66 from 91Processing frequency 67 from 91Processing frequency 68 from 91Processing frequency 69 from 91Processing frequency 70 from 91Processing frequency 71 from 91Processing frequency 72 from 91Processing frequency 73 from 91Processing frequency 74 from 91Processing frequency 75 from 91Processing frequency 76 from 91Processing frequency 77 from 91Processing frequency 78 from 91Processing frequency 79 from 91Processing frequency 80 from 91Processing frequency 81 from 91Processing frequency 82 from 91Processing frequency 83 from 91Processing frequency 84 from 91Processing frequency 85 from 91Processing frequency 86 from 91Processing frequency 87 from 91Processing frequency 88 from 91Processing frequency 89 from 91Processing frequency 90 from 91Processing frequency 91 from 91
+the input is spike data with 1 channels
+Please wait...
+
+Shuffle 2...
+[Warning: use cfg.method='mtmconvol' instead of cfg.method='convol'] 
+[> In ft_checkconfig at 139
+  In ft_spiketriggeredspectrum at 85
+  In PPC_comparison at 145
+  In PPC_init at 19] 
+the input is raw data with 15 channels and 1 trials
+converting raw data into spike data
+Please wait...
+Processing frequency 2 from 91Processing frequency 3 from 91Processing frequency 4 from 91Processing frequency 5 from 91Processing frequency 6 from 91Processing frequency 7 from 91Processing frequency 8 from 91Processing frequency 9 from 91Processing frequency 10 from 91Processing frequency 11 from 91Processing frequency 12 from 91Processing frequency 13 from 91Processing frequency 14 from 91Processing frequency 15 from 91Processing frequency 16 from 91Processing frequency 17 from 91Processing frequency 18 from 91Processing frequency 19 from 91Processing frequency 20 from 91Processing frequency 21 from 91Processing frequency 22 from 91Processing frequency 23 from 91Processing frequency 24 from 91Processing frequency 25 from 91Processing frequency 26 from 91Processing frequency 27 from 91Processing frequency 28 from 91Processing frequency 29 from 91Processing frequency 30 from 91Processing frequency 31 from 91Processing frequency 32 from 91Processing frequency 33 from 91Processing frequency 34 from 91Processing frequency 35 from 91Processing frequency 36 from 91Processing frequency 37 from 91Processing frequency 38 from 91Processing frequency 39 from 91Processing frequency 40 from 91Processing frequency 41 from 91Processing frequency 42 from 91Processing frequency 43 from 91Processing frequency 44 from 91Processing frequency 45 from 91Processing frequency 46 from 91Processing frequency 47 from 91Processing frequency 48 from 91Processing frequency 49 from 91Processing frequency 50 from 91Processing frequency 51 from 91Processing frequency 52 from 91Processing frequency 53 from 91Processing frequency 54 from 91Processing frequency 55 from 91Processing frequency 56 from 91Processing frequency 57 from 91Processing frequency 58 from 91Processing frequency 59 from 91Processing frequency 60 from 91Processing frequency 61 from 91Processing frequency 62 from 91Processing frequency 63 from 91Processing frequency 64 from 91Processing frequency 65 from 91Processing frequency 66 from 91Processing frequency 67 from 91Processing frequency 68 from 91Processing frequency 69 from 91Processing frequency 70 from 91Processing frequency 71 from 91Processing frequency 72 from 91Processing frequency 73 from 91Processing frequency 74 from 91Processing frequency 75 from 91Processing frequency 76 from 91Processing frequency 77 from 91Processing frequency 78 from 91Processing frequency 79 from 91Processing frequency 80 from 91Processing frequency 81 from 91Processing frequency 82 from 91Processing frequency 83 from 91Processing frequency 84 from 91Processing frequency 85 from 91Processing frequency 86 from 91Processing frequency 87 from 91Processing frequency 88 from 91Processing frequency 89 from 91Processing frequency 90 from 91Processing frequency 91 from 91
+the input is spike data with 1 channels
+Please wait...
+
+Shuffle 3...
+[Warning: use cfg.method='mtmconvol' instead of cfg.method='convol'] 
+[> In ft_checkconfig at 139
+  In ft_spiketriggeredspectrum at 85
+  In PPC_comparison at 145
+  In PPC_init at 19] 
+the input is raw data with 15 channels and 1 trials
+converting raw data into spike data
+Please wait...
+Processing frequency 2 from 91Processing frequency 3 from 91Processing frequency 4 from 91Processing frequency 5 from 91Processing frequency 6 from 91Processing frequency 7 from 91Processing frequency 8 from 91Processing frequency 9 from 91Processing frequency 10 from 91Processing frequency 11 from 91Processing frequency 12 from 91Processing frequency 13 from 91Processing frequency 14 from 91Processing frequency 15 from 91Processing frequency 16 from 91Processing frequency 17 from 91Processing frequency 18 from 91Processing frequency 19 from 91Processing frequency 20 from 91Processing frequency 21 from 91Processing frequency 22 from 91Processing frequency 23 from 91Processing frequency 24 from 91Processing frequency 25 from 91Processing frequency 26 from 91Processing frequency 27 from 91Processing frequency 28 from 91Processing frequency 29 from 91Processing frequency 30 from 91Processing frequency 31 from 91Processing frequency 32 from 91Processing frequency 33 from 91Processing frequency 34 from 91Processing frequency 35 from 91Processing frequency 36 from 91Processing frequency 37 from 91Processing frequency 38 from 91Processing frequency 39 from 91Processing frequency 40 from 91Processing frequency 41 from 91Processing frequency 42 from 91Processing frequency 43 from 91Processing frequency 44 from 91Processing frequency 45 from 91Processing frequency 46 from 91Processing frequency 47 from 91Processing frequency 48 from 91Processing frequency 49 from 91Processing frequency 50 from 91Processing frequency 51 from 91Processing frequency 52 from 91Processing frequency 53 from 91Processing frequency 54 from 91Processing frequency 55 from 91Processing frequency 56 from 91Processing frequency 57 from 91Processing frequency 58 from 91Processing frequency 59 from 91Processing frequency 60 from 91Processing frequency 61 from 91Processing frequency 62 from 91Processing frequency 63 from 91Processing frequency 64 from 91Processing frequency 65 from 91Processing frequency 66 from 91Processing frequency 67 from 91Processing frequency 68 from 91Processing frequency 69 from 91Processing frequency 70 from 91Processing frequency 71 from 91Processing frequency 72 from 91Processing frequency 73 from 91Processing frequency 74 from 91Processing frequency 75 from 91Processing frequency 76 from 91Processing frequency 77 from 91Processing frequency 78 from 91Processing frequency 79 from 91Processing frequency 80 from 91Processing frequency 81 from 91Processing frequency 82 from 91Processing frequency 83 from 91Processing frequency 84 from 91Processing frequency 85 from 91Processing frequency 86 from 91Processing frequency 87 from 91Processing frequency 88 from 91Processing frequency 89 from 91Processing frequency 90 from 91Processing frequency 91 from 91
+the input is spike data with 1 channels
+Please wait...
+
+Shuffle 4...
+[Warning: use cfg.method='mtmconvol' instead of cfg.method='convol'] 
+[> In ft_checkconfig at 139
+  In ft_spiketriggeredspectrum at 85
+  In PPC_comparison at 145
+  In PPC_init at 19] 
+the input is raw data with 15 channels and 1 trials
+converting raw data into spike data
+Please wait...
+Processing frequency 2 from 91Processing frequency 3 from 91Processing frequency 4 from 91Processing frequency 5 from 91Processing frequency 6 from 91Processing frequency 7 from 91Processing frequency 8 from 91Processing frequency 9 from 91Processing frequency 10 from 91Processing frequency 11 from 91Processing frequency 12 from 91Processing frequency 13 from 91Processing frequency 14 from 91Processing frequency 15 from 91Processing frequency 16 from 91Processing frequency 17 from 91Processing frequency 18 from 91Processing frequency 19 from 91Processing frequency 20 from 91Processing frequency 21 from 91Processing frequency 22 from 91Processing frequency 23 from 91Processing frequency 24 from 91Processing frequency 25 from 91Processing frequency 26 from 91Processing frequency 27 from 91Processing frequency 28 from 91Processing frequency 29 from 91Processing frequency 30 from 91Processing frequency 31 from 91Processing frequency 32 from 91Processing frequency 33 from 91Processing frequency 34 from 91Processing frequency 35 from 91Processing frequency 36 from 91Processing frequency 37 from 91Processing frequency 38 from 91Processing frequency 39 from 91Processing frequency 40 from 91Processing frequency 41 from 91Processing frequency 42 from 91Processing frequency 43 from 91Processing frequency 44 from 91Processing frequency 45 from 91Processing frequency 46 from 91Processing frequency 47 from 91Processing frequency 48 from 91Processing frequency 49 from 91Processing frequency 50 from 91Processing frequency 51 from 91Processing frequency 52 from 91Processing frequency 53 from 91Processing frequency 54 from 91Processing frequency 55 from 91Processing frequency 56 from 91Processing frequency 57 from 91Processing frequency 58 from 91Processing frequency 59 from 91Processing frequency 60 from 91Processing frequency 61 from 91Processing frequency 62 from 91Processing frequency 63 from 91Processing frequency 64 from 91Processing frequency 65 from 91Processing frequency 66 from 91Processing frequency 67 from 91Processing frequency 68 from 91Processing frequency 69 from 91Processing frequency 70 from 91Processing frequency 71 from 91Processing frequency 72 from 91Processing frequency 73 from 91Processing frequency 74 from 91Processing frequency 75 from 91Processing frequency 76 from 91Processing frequency 77 from 91Processing frequency 78 from 91Processing frequency 79 from 91Processing frequency 80 from 91Processing frequency 81 from 91Processing frequency 82 from 91Processing frequency 83 from 91Processing frequency 84 from 91Processing frequency 85 from 91Processing frequency 86 from 91Processing frequency 87 from 91Processing frequency 88 from 91Processing frequency 89 from 91Processing frequency 90 from 91Processing frequency 91 from 91
+------------------------- Epilogue ----------------------------
+        Finished: Mon Mar 19 20:41:27 EDT 2018
+          Job ID: 40599.knorr.hpcc.dartmouth.edu
+         User ID: f00287r
+        Group ID: rc-users
+        Job Name: DC_PPC
+      Session ID: 60556
+ Resources Req'd: nodes=1:ppn=8,walltime=16:00:00,neednodes=1:ppn=8
+  Resources Used: cput=00:14:46,vmem=6460548kb,walltime=00:03:57,mem=2150924kb,energy_used=0
+      Queue Name: default
+    Account Name: BrainSci
+------------------------- Epilogue ----------------------------
+

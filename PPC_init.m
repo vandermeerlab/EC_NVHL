@@ -3,7 +3,7 @@
 %% used for cluster runs of the PPC_comparison script.  Paths and parameters are put into a cfg struct here.  
 
 addpath('/dartfs-hpc/rc/home/r/f00287r/Code/EC_NVHL')
-
+addpath(genpath('/dartfs-hpc/rc/home/r/f00287r/Code/vandermeerlab/code-matlab/shared'))
 addpath('/dartfs-hpc/rc/home/r/f00287r/Code/fieldtrip')
 ft_defaults
 
